@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import pages.FirstPage;
 import pages.NavigationPage;
+import services.EnvironmentReaderServices;
 
 public class SetupPlayWrightRunner {
     protected Page page;
@@ -30,5 +31,8 @@ public class SetupPlayWrightRunner {
     public void tearDow(){
         browserContext.close();
         browser.close();
+    }
+    protected String getProperty(String key){
+        return EnvironmentReaderServices.getProperty(key);
     }
 }
